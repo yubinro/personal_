@@ -16,6 +16,16 @@ PowerShell에서 `npm.ps1` 실행 정책 오류가 발생하면 `npm.cmd run dev
 
 포트가 사용 중이라면 `npm.cmd run dev -- --port 5174`로 변경할 수 있습니다.
 
+## GitHub Actions 배포
+
+`.github/workflows/deploy-pages.yml`은 `main` 브랜치에 push할 때 GitHub Pages로 자동 배포합니다. Actions 탭에서 수동 실행도 가능합니다. 공식 GitHub Pages Actions와 기본 제공 `GITHUB_TOKEN`을 사용하므로 별도 배포 토큰은 필요하지 않습니다.
+
+최초 한 번 저장소 [Settings → Pages](https://github.com/yubinro/personal_/settings/pages)의 **Build and deployment → Source**를 **GitHub Actions**로 선택하세요. 그런 다음 워크플로 파일을 포함한 변경 사항을 커밋하고 `main`으로 push하세요.
+
+배포 진행 상태는 [Actions](https://github.com/yubinro/personal_/actions)에서 확인합니다. 성공 후 기본 배포 주소는 https://yubinro.github.io/personal_/ 입니다. 저장소의 공개 여부와 GitHub 플랜에 따라 Pages 사용 가능 여부가 달라집니다.
+
+배포 파일은 `index.html`, `style.css`, `app.js` 세 개입니다. Node 개발 서버는 로컬 실행용이며 GitHub Pages에는 정적 파일만 게시합니다. CSS와 JavaScript는 상대 경로로 불러오므로 저장소 하위 경로에서도 동작합니다.
+
 ## 기능
 
 - 양력 생년월일, 출생 시간, 닉네임 입력
